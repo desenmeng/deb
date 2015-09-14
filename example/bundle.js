@@ -50,12 +50,14 @@
 	 * process.env.DEB should define in webpack
 	 */
 	process.env.DEB = true;
-	var debug1 = __webpack_require__(2)('1');
-	var debug2 = __webpack_require__(2)('2');
-	var debug3 = __webpack_require__(2)('3');
+	var lib = __webpack_require__(2);
+	var debug1 = __webpack_require__(3)('1');
+	var debug2 = __webpack_require__(3)('2');
+	var debug3 = __webpack_require__(3)('3');
 	debug1('1');
 	debug2('2');
-	debug3('3');
+	debug3('3.1');
+	lib();
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
@@ -160,19 +162,30 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var debug3 = __webpack_require__(3)('3');
+
+	module.exports = function() {
+	  debug3(3.2);
+	}
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {
 	var debs = {};
-	var randomColor = __webpack_require__(3);
+	var randomColor = __webpack_require__(4);
 	module.exports = function(key) {
 	  if (debs[key]) {
 	    return debs[key];
 	  }
 	  debs[key] = function() {
-	    var color = randomColor({luminosity: 'bright'});
+	    var color = randomColor({luminosity: 'dark'});
 	    var name = key;
 	    return function(text) {
 	      if (process.env.DEB) {
-	        console.log(`%c ${name}: ${text}`, `color: ${color}; font-weight: bold`);
+	        console.log(`%c ${name}:`, `color: ${color}; font-weight: bold`, text);
 	      }
 	    }
 	  }();
@@ -182,7 +195,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// randomColor by David Merfield under the MIT license
