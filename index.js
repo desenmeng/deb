@@ -10,7 +10,7 @@ module.exports = function(key) {
     var name = key;
     return function(text) {
       if (process.env.DEB) {
-        console.log(`%c ${name}:`, `color: ${color}; font-weight: bold`, text);
+        console.log('%c ' + name + ':', 'color:' + color + '; font-weight: bold', text);
       }
     }
   }();
