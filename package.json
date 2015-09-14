@@ -1,6 +1,6 @@
 {
   "name": "deb",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "tiny browser debugging utility for your libraries and applications",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/demohi/deb/issues"
   },
-  "homepage": "https://github.com/demohi/deb"
+  "homepage": "https://github.com/demohi/deb",
+  "dependencies": {
+    "randomcolor": "^0.4.0"
+  }
 }
