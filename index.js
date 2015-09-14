@@ -6,11 +6,11 @@ module.exports = function(key) {
     return debs[key];
   }
   debs[key] = function() {
-    var color = randomColor({luminosity: 'bright'});
+    var color = randomColor({luminosity: 'dark'});
     var name = key;
     return function(text) {
       if (process.env.DEB) {
-        console.log(`%c ${name}: ${text}`, `color: ${color}; font-weight: bold`);
+        console.log(`%c ${name}:`, `color: ${color}; font-weight: bold`, text);
       }
     }
   }();
